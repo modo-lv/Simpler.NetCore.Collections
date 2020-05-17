@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.2.1</PackageVersion>
+        <Authors>modo.lv</Authors>
+        <RepositoryUrl>https://github.com/modo-lv/Simpler.NetCore/tree/Collections_v0.0.2.1/Simpler.NetCore.Collections</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageProjectUrl></PackageProjectUrl>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Simpler.NetCore.Collections.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>
