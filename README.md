@@ -2,7 +2,15 @@
 
 ## Extension methods
 
-### `IsOneOf`
+### `.ForEach(Action)`
+
+A fluent alternative to `foreach (var element in collection) { action(element); }`.
+
+```cs
+new [] { 1, 2, 3 }.ForEach(n => Console.WriteLine(n));
+```
+
+### `.IsOneOf`
 
 A fluent alternative to `Enumerable.Contains`.
 
@@ -13,7 +21,7 @@ A fluent alternative to `Enumerable.Contains`.
 "b".IsOneOf("a", "b", "c");                      // true
 ```
 
-### `StringJoin`
+### `.StringJoin`
 
 A fluent alternative to `String.Join`.
 
@@ -24,16 +32,16 @@ new []{"a","b","c"}.StringJoin();     // "abc"
 new []{"a","b","c"}.StringJoin(", "); // "a, b, c"
 ```
 
-## Nil
+## `Nil`
 
 Contains shorthand methods and properties for instantiating common collections.
 
 ##### Methods
 
-* `E()` creates an empty Enumerable.
-* `L()` Creates an empty List.
-* `S()` Creates an empty HashSet.
-* `D()` Creates an empty Dictionary.
+* `.E()` creates an empty Enumerable.
+* `.L()` Creates an empty List.
+* `.S()` Creates an empty HashSet.
+* `.D()` Creates an empty Dictionary.
 
 ##### Properties
 
