@@ -32,6 +32,16 @@ new []{"a","b","c"}.StringJoin();     // "abc"
 new []{"a","b","c"}.StringJoin(", "); // "a, b, c"
 ```
 
+### `.ToDictionary`
+
+Parameter-less conversion of any collection of key-value pairs to a dictionary. 
+
+```cs
+new List<KeyValuePair<String, Int32>>{
+  new KeyValuePair<String, Int32>("a", 1)
+}.toDictionary(); // { "a": 1 }
+```
+
 ## `Nil`
 
 Contains shorthand methods and properties for instantiating common collections.

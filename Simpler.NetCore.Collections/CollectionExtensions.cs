@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 // ReSharper disable UnusedMember.Global
@@ -20,6 +21,7 @@ namespace Simpler.NetCore.Collections {
         action(value);
     }
 
+
     /// <inheritdoc cref="string.Join(string,IEnumerable{string})"/>
     public static String StringJoin(this IEnumerable<Object> values, String separator = "") {
       return String.Join(separator, values);
@@ -33,5 +35,14 @@ namespace Simpler.NetCore.Collections {
     /// <inheritdoc cref="Enumerable.Contains{TSource}(IEnumerable{TSource},TSource)"/>
     public static Boolean IsOneOf<TSource>(this TSource value, params TSource[] sources) =>
       sources.Contains(value);
+
+
+    /// <summary>
+    /// Parameter-less conversion of any collection of key-value pairs to a dictionary. 
+    /// </summary>
+    public static IDictionary<TKey, TValue> ToDictionary<TKey, TValue>(
+      this IEnumerable<KeyValuePair<TKey, TValue>> pairs
+    ) =>
+      pairs.ToDictionary(_ => _.Key, _ => _.Value);
   }
 }

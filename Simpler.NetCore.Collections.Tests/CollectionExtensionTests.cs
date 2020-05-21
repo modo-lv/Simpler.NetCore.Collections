@@ -23,5 +23,13 @@ namespace Simpler.NetCore.Collections.Tests {
       Assert.Equal("abc", noSep);
       Assert.Equal("a, b, c", withSep);
     }
+
+    [Fact]
+    void ToDictionary() {
+      var input = new List<KeyValuePair<String, Int32>> { new KeyValuePair<String, Int32>("a", 1) };
+      var output = input.ToDictionary();
+
+      output["a"].Should().Be(1);
+    }
   }
 }
