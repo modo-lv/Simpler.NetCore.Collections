@@ -1,5 +1,7 @@
 # Simpler.NetCore.Collections
 
+![](https://github.com/modo-lv/Simpler.NetCore.Collections/workflows/Tests/badge.svg)
+
 ## Extension methods
 
 ### `.ForEach(Action)`
