@@ -10,6 +10,17 @@ A fluent alternative to `foreach (var element in collection) { action(element); 
 new [] { 1, 2, 3 }.ForEach(n => Console.WriteLine(n));
 ```
 
+### `.GetOrAdd(key, value)`
+
+Retrieve a value from a dictionary, adding it if the key is not present.
+
+```cs
+var d = new Dictionary<String, String>() { { "a", 1 } };
+d.GetOrAdd("a", 2); // 1
+d.GetOrAdd("b", 2); // 2
+d.GetOrAdd("b", 3); // 2
+```
+
 ### `.IsOneOf`
 
 A fluent alternative to `Enumerable.Contains`.

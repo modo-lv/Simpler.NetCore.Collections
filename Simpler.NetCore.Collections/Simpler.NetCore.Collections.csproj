@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard1.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.0.5</PackageVersion>
+        <PackageVersion>0.0.6</PackageVersion>
         <Authors>modo.lv</Authors>
         <RepositoryUrl>https://github.com/modo-lv/Simpler.NetCore.Collections/tree/v0.0.5</RepositoryUrl>
         <RepositoryType>GitHub</RepositoryType>
