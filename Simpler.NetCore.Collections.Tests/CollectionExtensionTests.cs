@@ -8,6 +8,14 @@ using Xunit;
 namespace Simpler.NetCore.Collections.Tests {
   public class CollectionExtensionTests {
     [Fact]
+    void GetOrAdd() {
+      var d = new Dictionary<String, Int32> { { "a", 1 } };
+      d.GetOrAdd("a", 2).Should().Be(1);
+      d.GetOrAdd("b", 2).Should().Be(2);
+      d.GetOrAdd("b", 3).Should().Be(2);
+    }
+    
+    [Fact]
     void IsOneOf() {
       var no = "x".IsOneOf(new List<String> { "a", "b", "c" });
       var yes = "b".IsOneOf("a", "b", "c");

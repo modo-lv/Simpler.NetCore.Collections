@@ -30,7 +30,7 @@ namespace Simpler.NetCore.Collections {
     /// <param name="value">Value to add if <paramref name="key"/> is not present in the dictionary.</param>
     /// <returns>The value at the given key if it exists, or the new <paramref name="value"/> if not.</returns>
     public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dic, TKey key, TValue value) {
-      if (dic.ContainsKey(key))
+      if (!dic.ContainsKey(key))
         dic[key] = value;
       return dic[key];
     }
