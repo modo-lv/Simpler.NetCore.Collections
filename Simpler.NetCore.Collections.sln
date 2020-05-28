@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.NetCore.Collections", "Simpler.NetCore.Collections\Simpler.NetCore.Collections.csproj", "{044FB279-A9FF-4EFC-8A9D-413942AC61AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.NetCore.Collections.Tests", "Simpler.NetCore.Collections.Tests\Simpler.NetCore.Collections.Tests.csproj", "{DCA37539-714C-4163-BA87-5EF043D0A599}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{044FB279-A9FF-4EFC-8A9D-413942AC61AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044FB279-A9FF-4EFC-8A9D-413942AC61AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044FB279-A9FF-4EFC-8A9D-413942AC61AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044FB279-A9FF-4EFC-8A9D-413942AC61AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA37539-714C-4163-BA87-5EF043D0A599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA37539-714C-4163-BA87-5EF043D0A599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA37539-714C-4163-BA87-5EF043D0A599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA37539-714C-4163-BA87-5EF043D0A599}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
