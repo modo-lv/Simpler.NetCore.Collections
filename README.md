@@ -12,6 +12,24 @@ A fluent alternative to `foreach (var element in collection) { action(element); 
 new [] { 1, 2, 3 }.ForEach(n => Console.WriteLine(n));
 ```
 
+
+### `.Get(key)`
+
+Retrieve a value from a dictionary, or a default fallback value if it is not present.
+
+```cs
+var i = new Dictionary<String, Int32> { { "a", 1 }};
+i.Get("a", 2); // 1
+i.Get("b", 2); // 2
+i.Get("c");    // 0
+
+var o = new Dictionary<String, Object> { { "a", "x" }};
+o.Get("a", "y"); // "x"
+o.Get("b", "y"); // "y"
+o.Get("c");      // null
+```
+
+
 ### `.GetOrAdd(key, value)`
 
 Retrieve a value from a dictionary, adding it if the key is not present.

@@ -23,6 +23,24 @@ namespace Simpler.NetCore.Collections {
 
 
     /// <summary>
+    /// A less strict way of retrieving a value from a dictionary, using a fallback value if the element does not exist.
+    /// </summary>
+    /// <param name="dictionary">Dictionary to look in.</param>
+    /// <param name="key">Key of the element to retrieve</param>
+    /// <param name="fallback">
+    /// Default value to return if the key is not present in the <paramref name="dictionary"/>
+    /// </param>
+    /// <typeparam name="TKey">Dictionary key type.</typeparam>
+    /// <typeparam name="TValue">Dictionary value type.</typeparam>
+    /// <returns>Dictionary element at <paramref name="key"/> or <paramref name="fallback"/> if not found.</returns>
+    public static TValue Get<TKey, TValue>(
+      this IDictionary<TKey, TValue> dictionary,
+      TKey key,
+      TValue fallback = default
+    ) => dictionary.ContainsKey(key) ? dictionary[key] : fallback;
+
+
+    /// <summary>
     /// Retrieve a value from a dictionary, adding it if the key is not present.
     /// </summary>
     /// <param name="dic">Dictionary to check/update.</param>
@@ -34,8 +52,8 @@ namespace Simpler.NetCore.Collections {
         dic[key] = value;
       return dic[key];
     }
-    
-    
+
+
     /// <inheritdoc cref="Enumerable.Contains{TSource}(IEnumerable{TSource},TSource)"/>
     public static Boolean IsOneOf<TSource>(this TSource value, IEnumerable<TSource> source) =>
       source.Contains(value);
@@ -44,7 +62,7 @@ namespace Simpler.NetCore.Collections {
     public static Boolean IsOneOf<TSource>(this TSource value, params TSource[] sources) =>
       sources.Contains(value);
 
-    
+
     /// <inheritdoc cref="string.Join(string,IEnumerable{string})"/>
     public static String StringJoin(this IEnumerable<Object> values, String separator = "") {
       return String.Join(separator, values);

@@ -8,6 +8,19 @@ using Xunit;
 namespace Simpler.NetCore.Collections.Tests {
   public class CollectionExtensionTests {
     [Fact]
+    void Get() {
+      var i = new Dictionary<String, Int32> { { "a", 1 }};
+      i.Get("a", 2).Should().Be(1);
+      i.Get("b", 2).Should().Be(2);
+      i.Get("c").Should().Be(0);
+      
+      var o = new Dictionary<String, Object> { { "a", "x" }};
+      o.Get("a", "y").Should().Be("x");
+      o.Get("b", "y").Should().Be("y");
+      o.Get("c").Should().BeNull();
+    }
+    
+    [Fact]
     void GetOrAdd() {
       var d = new Dictionary<String, Int32> { { "a", 1 } };
       d.GetOrAdd("a", 2).Should().Be(1);
