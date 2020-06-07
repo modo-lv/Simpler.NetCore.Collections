@@ -23,7 +23,7 @@ namespace Simpler.NetCore.Collections {
 
 
     /// <summary>
-    /// A less strict way of retrieving a value from a dictionary, using a fallback value if the element does not exist.
+    /// A less strict way of retrieving a value from a dictionary, using a fallback value if the key is not present.
     /// </summary>
     /// <param name="dictionary">Dictionary to look in.</param>
     /// <param name="key">Key of the element to retrieve</param>
@@ -33,13 +33,14 @@ namespace Simpler.NetCore.Collections {
     /// <typeparam name="TKey">Dictionary key type.</typeparam>
     /// <typeparam name="TValue">Dictionary value type.</typeparam>
     /// <returns>Dictionary element at <paramref name="key"/> or <paramref name="fallback"/> if not found.</returns>
-    public static TValue Get<TKey, TValue>(
+    public static TValue GetOr<TKey, TValue>(
       this IDictionary<TKey, TValue> dictionary,
       TKey key,
-      TValue fallback = default
+      TValue fallback
     ) => dictionary.ContainsKey(key) ? dictionary[key] : fallback;
+    
 
-
+    
     /// <summary>
     /// Retrieve a value from a dictionary, adding it if the key is not present.
     /// </summary>

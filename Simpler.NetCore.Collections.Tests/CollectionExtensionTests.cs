@@ -10,14 +10,14 @@ namespace Simpler.NetCore.Collections.Tests {
     [Fact]
     void Get() {
       var i = new Dictionary<String, Int32> { { "a", 1 }};
-      i.Get("a", 2).Should().Be(1);
-      i.Get("b", 2).Should().Be(2);
-      i.Get("c").Should().Be(0);
-      
-      var o = new Dictionary<String, Object> { { "a", "x" }};
-      o.Get("a", "y").Should().Be("x");
-      o.Get("b", "y").Should().Be("y");
-      o.Get("c").Should().BeNull();
+      i.GetOr("a", 2).Should().Be(1);
+      i.GetOr("b", 2).Should().Be(2);
+      i.GetOr("c", default).Should().Be(0);
+
+      var o = new Dictionary<String, Object?> { { "a", "x" }};
+      o.GetOr("a", "y").Should().Be("x");
+      o.GetOr("b", "y").Should().Be("y");
+      o.GetOr("c", default).Should().BeNull();
     }
     
     [Fact]
