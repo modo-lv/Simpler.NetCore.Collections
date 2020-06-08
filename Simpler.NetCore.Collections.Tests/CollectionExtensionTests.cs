@@ -8,26 +8,27 @@ using Xunit;
 namespace Simpler.NetCore.Collections.Tests {
   public class CollectionExtensionTests {
     [Fact]
-    void Get() {
-      var i = new Dictionary<String, Int32> { { "a", 1 }};
+    void GetOr() {
+      var i = new Dictionary<String, Int32> { { "a", 1 } };
       i.GetOr("a", 2).Should().Be(1);
       i.GetOr("b", 2).Should().Be(2);
       i.GetOr("c", default).Should().Be(0);
 
-      var o = new Dictionary<String, Object?> { { "a", "x" }};
+      var o = new Dictionary<String, Object?> { { "a", "x" }, { "b", null } };
       o.GetOr("a", "y").Should().Be("x");
       o.GetOr("b", "y").Should().Be("y");
-      o.GetOr("c", default).Should().BeNull();
+      o.GetOr("b", "y", acceptNulls: true).Should().BeNull();
+      o.GetOr("c", default!).Should().BeNull();
     }
-    
+
     [Fact]
     void GetOrAdd() {
-      var d = new Dictionary<String, Int32> { { "a", 1 } };
-      d.GetOrAdd("a", 2).Should().Be(1);
+      var d = new Dictionary<String, Int32?> { { "a", 1 }, { "b", null }, { "c", null } };
+      d.GetOrAdd("a", 0).Should().Be(1);
       d.GetOrAdd("b", 2).Should().Be(2);
-      d.GetOrAdd("b", 3).Should().Be(2);
+      d.GetOrAdd("c", 3, acceptNulls: true).Should().BeNull();
     }
-    
+
     [Fact]
     void IsOneOf() {
       var no = "x".IsOneOf(new List<String> { "a", "b", "c" });

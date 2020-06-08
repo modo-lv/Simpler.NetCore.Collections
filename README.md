@@ -13,32 +13,33 @@ new [] { 1, 2, 3 }.ForEach(n => Console.WriteLine(n));
 ```
 
 
-### `.GetOr(key, fallback)`
+### `.GetOr(key, fallback, acceptNulls)`
 
-Retrieve a value from a dictionary, or a default fallback value if it is not present.
+Retrieve a value from a dictionary, or a fallback value if `key` is not present or is null (depending on `acceptNulls`).
 
 ```cs
-var i = new Dictionary<String, Int32> { { "a", 1 }};
-i.GetOr("a", 2);       // 1
-i.GetOr("b", 2);       // 2
-i.GetOr("c", default); // 0
+var i = new Dictionary<String, Int32> { { "a", 1 } };
+i.GetOr("a", 2)       // 1
+i.GetOr("b", 2)       // 2
+i.GetOr("c", default) // 0
 
-var o = new Dictionary<String, Object?> { { "a", "x" }};
-o.GetOr("a", "y");     // "x"
-o.GetOr("b", "y");     // "y"
-o.GetOr("c", default); // null
+var o = new Dictionary<String, Object?> { { "a", "x" }, { "b", null } };
+o.GetOr("a", "y")                    // "x"
+o.GetOr("b", "y")                    // "y"
+o.GetOr("b", "y", acceptNulls: true) // null
+o.GetOr("c", default!)               // null
 ```
 
 
-### `.GetOrAdd(key, value)`
+### `.GetOrAdd(key, value, acceptNulls)`
 
-Retrieve a value from a dictionary, adding it if the key is not present.
+Retrieve a value from a dictionary, adding it if `key` is not present or is null (depending on `acceptNulls`).
 
 ```cs
-var d = new Dictionary<String, String>() { { "a", 1 } };
-d.GetOrAdd("a", 2); // 1
-d.GetOrAdd("b", 2); // 2
-d.GetOrAdd("b", 3); // 2
+var d = new Dictionary<String, Int32?> { { "a", 1 }, { "b", null }, { "c", null } };
+d.GetOrAdd("a", 0)                    // 1
+d.GetOrAdd("b", 2)                    // 2
+d.GetOrAdd("c", 3, acceptNulls: true) // null
 ```
 
 ### `.IsOneOf`
