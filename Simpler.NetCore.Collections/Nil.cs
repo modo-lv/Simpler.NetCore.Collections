@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Simpler.NetCore.Collections {
@@ -22,6 +23,15 @@ namespace Simpler.NetCore.Collections {
 
     /// <inheritdoc cref="E{T}"/>
     public static IEnumerable<String> EStr => E<String>();
+    
+    
+    /// <summary>
+    /// Create an empty <see cref="Collection{T}"/>
+    /// </summary>
+    public static ICollection<T> C<T>() => new Collection<T>();
+
+    /// <inheritdoc cref="C{T}"/>
+    public static ICollection<String> CStr => C<String>();
 
 
     /// <summary>

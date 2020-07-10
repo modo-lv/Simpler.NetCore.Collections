@@ -81,9 +81,10 @@ Contains shorthand methods and properties for instantiating common collections.
 ##### Methods
 
 * `.E()` creates an empty Enumerable.
-* `.L()` Creates an empty List.
-* `.S()` Creates an empty HashSet.
-* `.D()` Creates an empty Dictionary.
+* `.C()` creates an empty Collection.
+* `.L()` creates an empty List.
+* `.S()` creates an empty HashSet.
+* `.D()` creates an empty Dictionary.
 
 ##### Properties
 
