@@ -73,7 +73,6 @@ namespace Simpler.NetCore.Collections {
     public static String StringJoin(this IEnumerable values, String separator = "") {
       var result = new List<String>();
       var enumerator = values.GetEnumerator();
-      enumerator.Reset();
       while (enumerator.MoveNext()) {
         result.Add(enumerator.Current.ToString());
       }
