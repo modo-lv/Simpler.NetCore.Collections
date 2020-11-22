@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace Simpler.NetCore.Collections {
       foreach (var value in values)
         action(value);
     }
-
 
     /// <summary>
     /// Retrieve a value from a dictionary, or a fallback value if
@@ -53,8 +53,7 @@ namespace Simpler.NetCore.Collections {
     /// <param name="acceptNulls">Treat <c>null</c> values as present in the dictionary?</param>
     /// <returns>The value at the given key if it exists, or the new <paramref name="value"/> if not.</returns>
     public static TValue GetOrAdd<TKey, TValue>
-      (this IDictionary<TKey, TValue> dic, TKey key, TValue value, Boolean acceptNulls = false) 
-    {
+      (this IDictionary<TKey, TValue> dic, TKey key, TValue value, Boolean acceptNulls = false) {
       if (!dic.ContainsKey(key) || dic[key] == null && !acceptNulls)
         dic[key] = value;
       return dic[key];
@@ -70,10 +69,17 @@ namespace Simpler.NetCore.Collections {
       sources.Contains(value);
 
 
-    /// <inheritdoc cref="string.Join(string,IEnumerable{string})"/>
-    public static String StringJoin(this IEnumerable<Object> values, String separator = "") {
-      return String.Join(separator, values);
+    /// <inheritdoc cref="string.Join(string,System.Collections.Generic.IEnumerable{string})"/>
+    public static String StringJoin(this IEnumerable values, String separator = "") {
+      var result = new List<String>();
+      var enumerator = values.GetEnumerator();
+      enumerator.Reset();
+      while (enumerator.MoveNext()) {
+        result.Add(enumerator.Current.ToString());
+      }
+      return String.Join(separator, result);
     }
+
 
 
     /// <summary>

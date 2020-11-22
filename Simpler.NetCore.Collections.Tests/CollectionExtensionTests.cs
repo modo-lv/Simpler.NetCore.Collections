@@ -39,10 +39,10 @@ namespace Simpler.NetCore.Collections.Tests {
 
     [Fact]
     void StringJoin() {
-      var noSep = new[] { "a", "b", "c" }.StringJoin();
+      var noSep = new[] { 1, 23, 42 }.StringJoin();
       var withSep = new[] { "a", "b", "c" }.StringJoin(", ");
 
-      Assert.Equal("abc", noSep);
+      Assert.Equal("12342", noSep);
       Assert.Equal("a, b, c", withSep);
     }
 
